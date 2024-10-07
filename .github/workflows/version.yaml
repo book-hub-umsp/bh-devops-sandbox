@@ -22,7 +22,7 @@ jobs:
       with:
         release_branch: master
         release_strategy: tag
-        tag_format: "%major%.%minor%.%patch%"
+        tag_format: "v%major%.%minor%.%patch%"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
