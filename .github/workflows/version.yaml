@@ -27,13 +27,6 @@ jobs:
     - name: Print tag from Create_Git_Tag
       run: echo ${{ join(steps.run_tag.outputs.*, '\n') }}
     
-    - uses: actions/checkout@master
-    - name: Bump version and push tag
-      uses: laputansoft/github-tag-action@v4.6
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        tag: ${{ join(steps.run_tag.outputs.*, '\n') }}
-
     - name: Save tag
       id: get_tag
       run: echo "version=$(echo ${{ join(steps.run_tag.outputs.*, '\n') }})" >> "$GITHUB_OUTPUT"
