@@ -18,6 +18,15 @@ env:
 
 
 jobs:
+  # tag-build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #       - uses: actions/checkout@master
+  #       - name: Bump version and push tag
+  #         uses: laputansoft/github-tag-action@v4.6
+  #         with:
+  #           github_token: ${{ secrets.GITHUB_TOKEN }}
+  #           tag: ${{ vars.VERS }}
   build:
 
     runs-on: ubuntu-latest
