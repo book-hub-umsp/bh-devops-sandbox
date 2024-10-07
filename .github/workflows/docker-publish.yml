@@ -33,6 +33,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
     uses: book-hub-umsp/bh-infrastructure/.github/workflows/docker-publish.yml@master
     secrets: inherit
   
