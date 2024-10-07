@@ -1,24 +1,51 @@
-# .github/workflows/version.yml
+# .github/workflows/release.yml
+
 name: Release
 
 on:
   pull_request:
     types: [closed]
 
+
 jobs:
+  Create_Git_Tag:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged
+    outputs:
+      tag-version: ${{ steps.get_tag.outputs.version }}
+    steps:    
+    - name: Create Tag
+      id: run_tag
+      uses: K-Phoen/semver-release-action@master
+      with:
+        release_branch: master
+        release_strategy: none
+        tag_format: "%major%.%minor%.%patch%"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Print tag from Create_Git_Tag
+      run: echo ${{ join(steps.run_tag.outputs.*, '\n') }}
     
+    - name: Save tag
+      id: get_tag
+      run: echo "version=$(echo ${{ join(steps.run_tag.outputs.*, '\n') }})" >> "$GITHUB_OUTPUT"
+
   build:
     permissions:
         contents: write
     runs-on: ubuntu-latest
-
-    if: github.event.pull_request.merged
-    
+    needs: Create_Git_Tag
+    env:
+        TAG: ${{needs.Create_Git_Tag.outputs.tag-version}}
     steps:
-      - name: Tag
-        uses: K-Phoen/semver-release-action@master
-        with:
-          release_branch: master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+        - uses: actions/checkout@master
+        - name: Bump version and push tag
+          uses: laputansoft/github-tag-action@v4.6
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            tag: ${{ env.TAG }}
+
+
+
+      
