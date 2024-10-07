@@ -19,14 +19,38 @@ jobs:
       uses: K-Phoen/semver-release-action@master
       with:
         release_branch: master
-        release_strategy: release
+        release_strategy: none
         tag_format: "%major%.%minor%.%patch%"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Print tag from Create_Git_Tag
       run: echo ${{ join(steps.run_tag.outputs.*, '\n') }}
-        
+    
+    - uses: actions/checkout@master
+    - name: Bump version and push tag
+      uses: laputansoft/github-tag-action@v4.6
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        tag: ${{ join(steps.run_tag.outputs.*, '\n') }}
+
     - name: Save tag
       id: get_tag
       run: echo "version=$(echo ${{ join(steps.run_tag.outputs.*, '\n') }})" >> "$GITHUB_OUTPUT"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: Create_Git_Tag
+    env:
+        TAG: ${{needs.Create_Git_Tag.outputs.tag-version}}
+    steps:
+        - uses: actions/checkout@master
+        - name: Bump version and push tag
+          uses: laputansoft/github-tag-action@v4.6
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            tag: ${{ env.TAG }}
+
+
+
+      
