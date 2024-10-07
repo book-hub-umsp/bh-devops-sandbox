@@ -20,6 +20,8 @@ jobs:
         release_branch: master
         release_strategy: tag
         tag_format: "%major%.%minor%.%patch%"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Print tag from Create_Git_Tag
       run: echo ${{ join(steps.run_tag.outputs.*, '\n') }}
