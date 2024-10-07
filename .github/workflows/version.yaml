@@ -6,7 +6,10 @@ on:
     types: [closed]
 
 jobs:
+    
   build:
+    permissions:
+        contents: write
     runs-on: ubuntu-latest
 
     if: github.event.pull_request.merged
