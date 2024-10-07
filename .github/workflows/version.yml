@@ -9,6 +9,8 @@ on:
 
 jobs:
   Create_Git_Tag:
+    permissions:
+      contents: write
     uses: book-hub-umsp/bh-infrastructure/.github/workflows/version.yml@master
     secrets: inherit
   

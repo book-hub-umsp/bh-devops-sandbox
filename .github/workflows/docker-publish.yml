@@ -30,6 +30,9 @@ jobs:
   #           tag: ${{ vars.VERS }}
   
   build:
+    permissions:
+      contents: read
+      packages: write
     uses: book-hub-umsp/bh-infrastructure/.github/workflows/docker-publish.yml@master
     secrets: inherit
   
