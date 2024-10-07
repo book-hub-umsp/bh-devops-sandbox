@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  Create_Git_Tag:
+  git-tag-create:
     permissions:
       contents: write
     uses: book-hub-umsp/bh-infrastructure/.github/workflows/version.yml@master
