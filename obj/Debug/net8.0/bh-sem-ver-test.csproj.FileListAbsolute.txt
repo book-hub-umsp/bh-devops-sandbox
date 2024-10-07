@@ -1,0 +1,14 @@
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\bin\Debug\net8.0\bh-sem-ver-test.exe
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\bin\Debug\net8.0\bh-sem-ver-test.deps.json
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\bin\Debug\net8.0\bh-sem-ver-test.runtimeconfig.json
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\bin\Debug\net8.0\bh-sem-ver-test.dll
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\bin\Debug\net8.0\bh-sem-ver-test.pdb
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\bh-sem-ver-test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\bh-sem-ver-test.AssemblyInfoInputs.cache
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\bh-sem-ver-test.AssemblyInfo.cs
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\bh-sem-ver-test.csproj.CoreCompileInputs.cache
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\bh-sem-ver-test.dll
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\refint\bh-sem-ver-test.dll
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\bh-sem-ver-test.pdb
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\bh-sem-ver-test.genruntimeconfig.cache
+C:\Users\semen\Desktop\vlsu-albs\devops\bh-sem-ver-test\obj\Debug\net8.0\ref\bh-sem-ver-test.dll

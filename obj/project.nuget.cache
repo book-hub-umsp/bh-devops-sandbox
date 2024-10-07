@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "avt1jKnyyew=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\semen\\Desktop\\vlsu-albs\\devops\\bh-sem-ver-test\\bh-sem-ver-test.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\semen\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}

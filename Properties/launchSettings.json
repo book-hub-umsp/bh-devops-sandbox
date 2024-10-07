@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "bh-sem-ver-test": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
