@@ -1,4 +1,4 @@
-name: Docker
+name: Docker build and push
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -10,25 +10,9 @@ on:
     # branches: [ "master" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
-# env:
-#   # Use docker.io for Docker Hub if empty
-#   REGISTRY: ghcr.io
-#   # github.repository as <account>/<repo>
-#   IMAGE_NAME: ${{ github.repository }}
-
 
 
 jobs:
-  # tag-build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #       - uses: actions/checkout@master
-  #       - name: Bump version and push tag
-  #         uses: laputansoft/github-tag-action@v4.6
-  #         with:
-  #           github_token: ${{ secrets.GITHUB_TOKEN }}
-  #           tag: ${{ vars.VERS }}
-  
   docker-build:
     permissions:
       contents: read
@@ -36,4 +20,13 @@ jobs:
       id-token: write
     uses: book-hub-umsp/bh-infrastructure/.github/workflows/docker-publish.yml@master
     secrets: inherit
+  deploy:
+    needs: [docker-build]
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ needs.docker-build.outputs.version-value }}
+    steps:
+    - name: Echo tag
+      run: echo "version=$PR_NUMBER"
+
   
