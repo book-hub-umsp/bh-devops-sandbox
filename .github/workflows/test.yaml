@@ -31,6 +31,7 @@ jobs:
       env:
         NOMAD_ADDR: ${{ env.NOMAD_ADDRS }}
       run: |
+        ls -la
         nomad job plan \
           -token "${{ secrets.NOMAD_JOB_TOKEN }}" \
           -var "ROOT_PASS=root" \
