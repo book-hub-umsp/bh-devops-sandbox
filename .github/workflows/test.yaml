@@ -1,1 +1,17 @@
+name: "Test action"
 
+on:
+  push:
+    branches: [ "master" ]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  REPO: ${{ github.repository }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "${{ env.REPO }}"
