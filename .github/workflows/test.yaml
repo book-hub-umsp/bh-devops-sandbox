@@ -6,7 +6,7 @@ on:
 
 env:
   NOMAD_VERSION: "1.9.1" # or: "latest"
-  NOMAD_ADDRESS: "http://147.45.159.235:4646/"
+  NOMAD_ADDR: "http://147.45.159.235:4646/"
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
