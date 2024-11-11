@@ -5,13 +5,19 @@ on:
     branches: [ "master" ]
 
 env:
+  NOMAD_VERSION: "1.9.1" # or: "latest"
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  REPO: ${{ github.repository }}
+  INFRO_REPO: book-hub-umsp/bh-infrastructure
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "${{ env.REPO }}"
+    - uses: actions/checkout@v4
+      with:
+        repository: '${{ env.INFRO_REPO }}'
+        ref: 'master'
+        token: '${{ secret.WORKFLOW_TOKEN }}'
+    - run: ls -la
