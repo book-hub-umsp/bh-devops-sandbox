@@ -19,5 +19,5 @@ jobs:
       with:
         repository: '${{ env.INFRO_REPO }}'
         ref: 'master'
-        token: '${{ secret.WORKFLOW_TOKEN }}'
+        token: '${{ secrets.WORKFLOW_TOKEN }}'
     - run: ls -la
