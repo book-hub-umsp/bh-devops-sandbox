@@ -32,7 +32,7 @@ jobs:
         NOMAD_ADDR: ${{ env.NOMAD_ADDRS }}
       run: |
         nomad job plan \
-          -exit-code-on-change=2 \
+          --exit-code-on-change=2 \
           -token "${{ secrets.NOMAD_JOB_TOKEN }}" \
           -var "ROOT_PASS=root" \
           -var "main-api-version=root" \
