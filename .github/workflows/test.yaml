@@ -27,4 +27,4 @@ jobs:
       with:
         version: ${{ env.PRODUCT_VERSION }}
     - run: ls -la
-    - run: nomad node status
+    - run: nomad job plan -token ${{ secrets.NOMAD_JOB_TOKEN }} nomad/jobs/bh-back.hcl
