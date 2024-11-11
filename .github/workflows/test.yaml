@@ -30,6 +30,7 @@ jobs:
     - name: Nomad test
       env:
         NOMAD_ADDRS: ${{ env.NOMAD_ADDRS }}
-      run: nomad job plan \
-            -token ${{ secrets.NOMAD_JOB_TOKEN }} \
-            nomad/jobs/bh-back.hcl
+      run: |
+        nomad job plan \
+          -token ${{ secrets.NOMAD_JOB_TOKEN }} \
+          nomad/jobs/bh-back.hcl
