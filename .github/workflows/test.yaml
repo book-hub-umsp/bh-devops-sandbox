@@ -31,7 +31,7 @@ jobs:
       env:
         NOMAD_ADDRS: ${{ env.NOMAD_ADDRS }}
       run: |
-        nomad job plan \
-          -token ${{ secrets.NOMAD_JOB_TOKEN }} \
+        nomad -token ${{ secrets.NOMAD_JOB_TOKEN }} job plan \
           -var ROOT_PASS "root" \
+          -var main-api-version "root" \
           nomad/jobs/bh-back.hcl
