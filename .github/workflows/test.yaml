@@ -33,4 +33,5 @@ jobs:
       run: |
         nomad job plan \
           -token ${{ secrets.NOMAD_JOB_TOKEN }} \
+          -var ROOT_PASS "root" \
           nomad/jobs/bh-back.hcl
