@@ -6,7 +6,7 @@ on:
 
 env:
   NOMAD_VERSION: "1.9.1" # or: "latest"
-  NOMAD_ADDR: "http://147.45.159.235:4646/"
+  NOMAD_ADDRS: "http://147.45.159.235:4646/"
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
@@ -27,4 +27,9 @@ jobs:
       with:
         version: ${{ env.PRODUCT_VERSION }}
     - run: ls -la
-    - run: nomad job plan -token ${{ secrets.NOMAD_JOB_TOKEN }} nomad/jobs/bh-back.hcl
+    - name: Nomad test
+      env:
+        NOMAD_ADDRS: ${{ env.NOMAD_ADDRS }}
+      run: nomad job plan \
+            -token ${{ secrets.NOMAD_JOB_TOKEN }} \
+            nomad/jobs/bh-back.hcl
